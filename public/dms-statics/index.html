@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta name="description" content="美食工坊">
   <meta name="author" content="gaols jipf">
 
@@ -13,7 +13,6 @@
   <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="js/ie10-viewport-bug-workaround.js"></script>
-  <!-- dms-->
   <link href="css/dms.css" rel="stylesheet">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -42,12 +41,44 @@
       </ul>
     </div>
   </div>
-</div><!-- nav -->
+</div>
+<!-- nav -->
 
-<div class="menu-list-container">
-  <div class="menu-list">
+<div class="container-fluid f-menu-container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 f-menu-item">
+      <div class="f-preview">
+        <img class="img-responsive" src="img/test-1.jpg">
+      </div>
+      <div class="f-details">
+        <h3 class="f-label">康师傅老坛酸菜面<span class="label label-default">99.9</span>￥</h3>
+        <ul class="list-inline">
+          <li>已购：<span class="badge">0</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 f-menu-item">
+      <div class="f-preview">
+        <img class="img-responsive" src="img/test-2.jpg">
+      </div>
+      <div class="f-details">
+        <span class="f-label">康师傅老坛酸菜面</span>
+        <ul class="list-inline">
+          <li><span class="f-price">99.9</span>￥</li>
+          <li>已购：<span class="badge">0</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-fixed-bottom f-navbar-bottom" role="navigation">
+    <div class="container f-nav-links">
+      <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a>
+    </div>
   </div>
 </div>
+<!-- all available fast food -->
+<!-- nav -->
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>

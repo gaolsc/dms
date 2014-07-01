@@ -1,79 +1,41 @@
-body {padding-top: 50px;}
-
-.menu-list-container {
-    width: 1180px;
-    margin: auto;
-    overflow: hidden;
+.f-preview {
+    width: 9em;
+    /*14#6=84px*/
+    height: 6em;
+    float: left;
 }
 
-.menu-list {
+.f-detail {
     float: left;
     overflow: hidden;
-    margin-right: 3px;
-    padding-right: 3px;
-    min-height: 530px;
+    width: 100%;
 }
 
-.checkout form {
-    padding-left: 3px;
+.f-menu-item {
+    border-bottom: 1px solid #eee;
 }
 
-.checkout-section {
-    overflow: hidden;
-    vertical-align: middle;
+body {
+    padding-top: 50px;
 }
 
-.checkout {
-    width: 350px;
-    float: left;
-    overflow: hidden;
-    padding-top: 10px;
-    border-left: 1px solid #eee;
+.f-menu-container {
+    margin-top: 10px;
 }
 
-.menu-list table thead {display: none}
-
-#lg-sum-price {color: red;}
-
-.ds-preview-container {
-    width: 160px;
-    height: 80px;
-    overflow: hidden;
+.f-label {
+    font-size: 1em;
+    display: block;
+    padding-bottom: 10px;
 }
 
-.lg-item-remove {
-    color: red;
-    cursor: pointer;
+.f-navbar-bottom {
+    background-color: #eee;
+    min-height: 40px;
+    border-top: 1px solid #ddd;
 }
 
-.badge-price {
-    width: 45px;
+.f-nav-links a {
     display: inline-block;
-}
-
-.ds-detail-container {
-    width: 236px;
-    overflow: hidden;
-}
-
-.lg-count-minus {
-    color: orange;
-    padding: 0 5px;
-    cursor: pointer;
-}
-.lg-count-plus {
-    color: green;
-    padding: 0 5px;
-    cursor: pointer;
-}
-
-.lg-checkout-cart {margin-bottom: 0px;}
-
-.menu-table>thead>tr>th,.menu-table>tbody>tr>td {
-    padding: 3px;
-}
-
-.ds-detail-container h3 {
-    font-size: 16px;
-    white-space: nowrap;
+    height: 40px;
 }
