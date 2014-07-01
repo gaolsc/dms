@@ -11,13 +11,18 @@
 </p>
 
 <p>
+  <strong>Enabled:</strong>
+  <%= @menu_item.enabled %>
+</p>
+
+<p>
   <strong>Preview url:</strong>
   <%= @menu_item.preview_url %>
 </p>
 
 <p>
-  <strong>Enabled:</strong>
-  <%= @menu_item.enabled %>
+  <strong>Desc:</strong>
+  <%= @menu_item.desc %>
 </p>
 
 <%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |

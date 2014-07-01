@@ -3,11 +3,13 @@
 one:
   label: MyString
   price: 9.99
+  enabled: 
   preview_url: MyString
-  enabled: false
+  desc: MyText
 
 two:
   label: MyString
   price: 9.99
+  enabled: 
   preview_url: MyString
-  enabled: false
+  desc: MyText

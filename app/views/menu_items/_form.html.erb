@@ -20,12 +20,16 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
+    <%= f.label :enabled %><br>
+    <%= f.text_field :enabled %>
+  </div>
+  <div class="field">
     <%= f.label :preview_url %><br>
     <%= f.text_field :preview_url %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br>
-    <%= f.check_box :enabled %>
+    <%= f.label :desc %><br>
+    <%= f.text_area :desc %>
   </div>
   <div class="actions">
     <%= f.submit %>
