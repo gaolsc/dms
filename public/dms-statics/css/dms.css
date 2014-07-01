@@ -47,11 +47,11 @@
 
 body {
     padding-top: 50px;
+    padding-bottom: 44px;
 }
 
 .f-menu-container {
     margin-top: 10px;
-    padding-bottom: 40px;
 }
 
 .f-label {
@@ -73,4 +73,8 @@ body {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     padding: 0 4px;
+}
+
+.f-cart-items {
+    display: none;
 }

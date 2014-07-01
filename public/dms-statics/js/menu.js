@@ -29,5 +29,6 @@ $(function() {
 
     $('#f-shopping-cart').click(function() {
         $('.f-menu-container').css('display', 'none');
+        $('.f-cart-items').css('display', 'block');
     });
 });
