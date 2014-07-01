@@ -47,38 +47,64 @@
 <div class="container-fluid f-menu-container">
   <div class="row">
     <div class="col-xs-12 col-md-6 f-menu-item">
-      <div class="f-preview">
-        <img class="img-responsive" src="img/test-1.jpg">
+      <div class="f-preview-container">
+        <img class="f-preview" src="img/test-1.jpg">
       </div>
       <div class="f-details">
-        <h3 class="f-label">康师傅老坛酸菜面<span class="label label-default">99.9</span>￥</h3>
-        <ul class="list-inline">
-          <li>已购：<span class="badge">0</span></li>
-        </ul>
+        <div>
+          <h3 class="f-label">康师傅老坛酸菜面</h3>
+          <p>￥<span class="f-price">99.9</span><span>已购：</span><span class="badge f-order-count">0</span></p>
+        </div>
+        <div class="btn-group" style="margin-top:-5px">
+          <button type="button" class="btn btn-info f-action-order"><span class="glyphicon glyphicon-shopping-cart"> 订购</span></button>
+          <button type="button" class="btn btn-default f-action-remove"><span class="glyphicon glyphicon-remove text-warning"></span></button>
+        </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-6 f-menu-item">
-      <div class="f-preview">
-        <img class="img-responsive" src="img/test-2.jpg">
+      <div class="f-preview-container">
+        <img class="f-preview" src="img/test-2.jpg">
       </div>
       <div class="f-details">
-        <span class="f-label">康师傅老坛酸菜面</span>
-        <ul class="list-inline">
-          <li><span class="f-price">99.9</span>￥</li>
-          <li>已购：<span class="badge">0</span></li>
-        </ul>
+        <div>
+          <h3 class="f-label">康师傅老坛酸菜面</h3>
+          <p>￥<span class="f-price">99.9</span><span>已购：</span><span class="badge f-order-count">0</span></p>
+        </div>
+        <div class="btn-group" style="margin-top:-5px">
+          <button type="button" class="btn btn-info f-action-order"><span class="glyphicon glyphicon-shopping-cart"> 订购</span></button>
+          <button type="button" class="btn btn-default f-action-remove"><span class="glyphicon glyphicon-remove text-warning"></span></button>
+        </div>
       </div>
+    </div>
+    <div class="col-xs-12 col-md-6 f-menu-item">
+      <div class="f-preview-container">
+        <img class="f-preview" src="img/test-3.jpg">
+      </div>
+      <div class="f-details">
+        <div>
+          <h3 class="f-label">康师傅老坛酸菜面</h3>
+          <p>￥<span class="f-price">9.9</span><span>已购：</span><span class="badge f-order-count">0</span></p>
+        </div>
+        <div class="btn-group" style="margin-top:-5px">
+          <button type="button" class="btn btn-info f-action-order"><span class="glyphicon glyphicon-shopping-cart"> 订购</span></button>
+          <button type="button" class="btn btn-default f-action-remove"><span class="glyphicon glyphicon-remove text-warning"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container f-cart-items">
+    <div class="row">
     </div>
   </div>
 
   <div class="navbar navbar-fixed-bottom f-navbar-bottom" role="navigation">
     <div class="container f-nav-links">
-      <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a>
+      <a href="#" id="f-shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a>
     </div>
   </div>
 </div>
 <!-- all available fast food -->
-<!-- nav -->
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
