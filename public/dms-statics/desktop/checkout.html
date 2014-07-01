@@ -1,0 +1,43 @@
+<div class="checkout">
+  <h3 style="margin-top: 3px;">我的购物车</h3>
+  <table class="table table-striped table-hover lg-checkout-cart">
+    <thead>
+    <th>餐品</th>
+    <th>单价</th>
+    <th>数量</th>
+    <th>#</th>
+    </thead>
+    <tbody id="cart-items">
+    <tr id="order-summary">
+      <td colspan="4">
+        <div style="text-align: center">
+          <span class="glyphicon glyphicon-send"></span><span id="empty-cart-placeholder"> 小计：<strong
+            id="lg-sum-price">0.0</strong>￥</span>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <form role="form">
+    <div class="checkout-section">
+      <h3 class="pull-left">配送地址</h3>
+    </div>
+    <div class="form-group">
+      <label for="tel">联系电话</label>
+      <input type="text" class="form-control" id="tel" placeholder="TEL">
+    </div>
+    <div class="form-group">
+      <label for="customer">联系人</label>
+      <input type="text" class="form-control" id="customer" placeholder="张先生/女士">
+    </div>
+    <div class="form-group">
+      <label for="ship-address">配送至</label>
+      <input type="text" class="form-control" id="ship-address" placeholder="深圳">
+    </div>
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-success">下单</button>
+      <button type="button" class="btn btn-warning">重填</button>
+    </div>
+  </form>
+</div>
