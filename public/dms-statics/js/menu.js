@@ -30,10 +30,10 @@ $(function() {
         if(order[id] == null) {
             order[id] = {count:0};
             context.parent().css('border-right', '4px solid green');
+            order[id].label = $('.f-label', context).html();
+            order[id].price = $('.f-price', context).html();
         }
         order[id].count += 1;
-        order[id].label = $('.f-label', context).html();
-        order[id].price = $('.f-price', context).html();
         console.log('order=', order);
         updateOrderItemCount(context, order[id].count);
     });
@@ -50,5 +50,28 @@ $(function() {
         $('.f-menu-container').css('display', 'none');
         $('.f-cart-items').css('display', 'block');
         generateShoppingCart(order);
+    });
+
+    $('#cart-items').on( 'click', 'span.lg-item-remove', function () {
+        console.log($(this).html());
+        $(this).parent().parent().remove();
+    });
+
+    $('#cart-items').on('click', 'span.lg-count-minus', function () {
+        var itemCount = $('input.i-item-count', $(this).parent());
+        var count = itemCount.val();
+        if (count > 1) {
+            var left = --count;
+            itemCount.val(left);
+        }
+    });
+
+    $('#cart-items').on('click', 'span.lg-count-minus', function () {
+        var itemCount = $('input.i-item-count', $(this).parent());
+        var count = itemCount.val();
+        if (count > 1) {
+            var left = --count;
+            itemCount.val(left);
+        }
     });
 });

@@ -78,11 +78,13 @@ body {
 .lg-count-plus {
     color: green;
     padding: 0 0.4em;
+    cursor: pointer;
 }
 
 .lg-count-minus {
     color: orange;
     padding: 0 0.4em;
+    cursor: pointer;
 }
 
 .lg-item-remove {
