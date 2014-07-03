@@ -66,3 +66,7 @@
 body {
     padding-top: 50px;
 }
+
+.m-menu-item h3 {
+    border-bottom: 2px solid #ddd;
+}
