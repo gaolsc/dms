@@ -3,7 +3,7 @@ class CreateMenuItems < ActiveRecord::Migration
     create_table :menu_items do |t|
       t.string :label
       t.decimal :price
-      t.boolen :enabled
+      t.boolean :enabled
       t.string :preview_url
       t.text :desc
 
