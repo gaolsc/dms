@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require ie10-viewport-bug-workaround
+//= require html5shiv.min
+//= require respond.min
