@@ -39,6 +39,10 @@
     padding-right: 10px;
 }
 
+.f-details p {
+    clear: both;
+}
+
 .f-price {
     color: red;
     padding-right: 1em;
@@ -48,7 +52,7 @@
 
 body {
     padding-top: 50px;
-    padding-bottom: 44px;
+    padding-bottom: 50px;
 }
 
 .f-menu-container {
@@ -72,24 +76,34 @@ body {
     height: 40px;
     line-height: 40px;
     border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
     padding: 0 4px;
+}
+
+.f-mark-required {
+    color: red;
+    padding-left: 5px;
 }
 
 .lg-count-plus {
     color: green;
-    padding: 0 0.4em;
+    padding: 0 0.5em;
     cursor: pointer;
 }
 
 .lg-count-minus {
     color: orange;
-    padding: 0 0.4em;
+    padding: 0 0.5em;
     cursor: pointer;
 }
 
 .lg-item-remove {
     color: red;
+    padding: 0 0.5em;
+    cursor: pointer;
+}
+
+#f-back-order {
+    display: none;
 }
 
 .i-item-count {
