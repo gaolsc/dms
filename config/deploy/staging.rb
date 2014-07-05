@@ -44,3 +44,11 @@ role :db,  %w{deploy@203.195.140.131}
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+after 'deploy:migrate', :seed do
+  on roles(:db) do
+    within release_path do
+      rake 'db:seed_fu'
+    end
+  end
+end
