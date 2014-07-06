@@ -1,0 +1,70 @@
+<% content_for :head do %>
+  <%= javascript_include_tag params[:controller] %>
+  <%= stylesheet_link_tag params[:controller] %>
+<% end %>
+
+<% content_for :nav_links do %>
+  <li class="active"><a href="#">美食工坊</a></li>
+  <li><a href="#about">关于我们</a></li>
+  <li><a href="#contact">联系方式</a></li>
+<% end %>
+
+<div class="container f-menu-container">
+  <div class="row">
+    <% @menu_items.each_slice(2) do |slice| %>
+      <%= render partial: "menu_item", collection: slice %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container f-cart-items">
+  <div class="checkout">
+    <h3>我的购物车</h3>
+    <table class="table table-striped table-hover f-checkout-cart">
+      <thead>
+      <th>餐品</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>#</th>
+      </thead>
+      <tbody id="cart-items">
+      <tr id="order-summary">
+        <td colspan="4">
+          <div style="text-align: center">
+            <span class="glyphicon glyphicon-send"></span><span id="empty-cart-placeholder"> 小计：<strong id="lg-sum-price">0.0</strong>￥</span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="checkout-section">
+      <h3>配送地址</h3>
+    </div>
+    <%= form_tag role="form" do %>
+      <div class="form-group">
+        <label for="tel">联系电话<span class="f-mark-required">*</span></label>
+        <input type="text" class="form-control" id="tel" placeholder="TEL">
+      </div>
+      <div class="form-group">
+        <label for="customer">联系人<span class="f-mark-required">*</span></label>
+        <input type="text" class="form-control" id="customer" placeholder="张先生/女士">
+      </div>
+      <div class="form-group">
+        <label for="ship-address">配送至<span class="f-mark-required">*</span></label>
+        <input type="text" class="form-control" id="ship-address" placeholder="深圳">
+      </div>
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-success" id="i-make-order">下单</button>
+        <button type="button" class="btn btn-warning">重填</button>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- all available fast food -->
+<div class="navbar navbar-fixed-bottom f-navbar-bottom" role="navigation">
+  <div class="container f-nav-links">
+    <a href="javascript:void(0)" id="f-back-order"><span class="glyphicon glyphicon-chevron-left"></span> 返回</a>
+    <a href="javascript:void(0)" id="f-shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a>
+  </div>
+</div>

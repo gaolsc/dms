@@ -1,0 +1,79 @@
+body {padding-top: 50px;}
+
+.menu-list-container {
+    width: 1180px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.menu-list {
+    float: left;
+    overflow: hidden;
+    margin-right: 3px;
+    padding-right: 3px;
+    min-height: 530px;
+}
+
+.checkout form {
+    padding-left: 3px;
+}
+
+.checkout-section {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.checkout {
+    width: 350px;
+    float: left;
+    overflow: hidden;
+    padding-top: 10px;
+    border-left: 1px solid #eee;
+}
+
+.menu-list table thead {display: none}
+
+#lg-sum-price {color: red;}
+
+.ds-preview-container {
+    width: 160px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.lg-item-remove {
+    color: red;
+    cursor: pointer;
+}
+
+.badge-price {
+    width: 45px;
+    display: inline-block;
+}
+
+.ds-detail-container {
+    width: 236px;
+    overflow: hidden;
+}
+
+.lg-count-minus {
+    color: orange;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.lg-count-plus {
+    color: green;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.lg-checkout-cart {margin-bottom: 0px;}
+
+.menu-table>thead>tr>th,.menu-table>tbody>tr>td {
+    padding: 3px;
+}
+
+.ds-detail-container h3 {
+    font-size: 16px;
+    white-space: nowrap;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description" content="美食工坊">
+  <meta name="author" content="gaols jipf">
+
+  <title>美食工坊</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <link href="css/dms.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">dms</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">美食工坊</a></li>
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#contact">联系方式</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- nav -->
+
+<div class="container-fluid f-menu-container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 f-menu-item">
+      <div class="f-preview-container">
+        <img class="f-preview" src="img/test-1.jpg">
+      </div>
+      <div class="f-details">
+        <div>
+          <h3 class="f-label">康师傅老坛酸菜面</h3>
+          <p>￥<span class="f-price">99.9</span><span>已购：</span><span class="badge f-order-count">0</span></p>
+        </div>
+        <div class="btn-group" style="margin-top:-5px">
+          <button type="button" class="btn btn-info f-action-order" value="1"><span class="glyphicon glyphicon-shopping-cart"> 订购</span></button>
+          <button type="button" class="btn btn-default f-action-remove" value="1"><span class="glyphicon glyphicon-remove text-warning"></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 f-menu-item">
+      <div class="f-preview-container">
+        <img class="f-preview" src="img/test-2.jpg">
+      </div>
+      <div class="f-details">
+        <div>
+          <h3 class="f-label">康师傅老坛酸菜面</h3>
+          <p>￥<span class="f-price">99.9</span><span>已购：</span><span class="badge f-order-count">0</span></p>
+        </div>
+        <div class="btn-group" style="margin-top:-5px">
+          <button type="button" class="btn btn-info f-action-order" value="2"><span class="glyphicon glyphicon-shopping-cart"> 订购</span></button>
+          <button type="button" class="btn btn-default f-action-remove" value="2"><span class="glyphicon glyphicon-remove text-warning"></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 f-menu-item">
+      <div class="f-preview-container">
+        <img class="f-preview" src="img/test-3.jpg">
+      </div>
+      <div class="f-details">
+        <div>
+          <h3 class="f-label">康师傅老坛酸菜面</h3>
+          <p>￥<span class="f-price">9.9</span><span>已购：</span><span class="badge f-order-count">0</span></p>
+        </div>
+        <div class="btn-group" style="margin-top:-5px">
+          <button type="button" class="btn btn-info f-action-order" value="3"><span class="glyphicon glyphicon-shopping-cart"> 订购</span></button>
+          <button type="button" class="btn btn-default f-action-remove" value="3"><span class="glyphicon glyphicon-remove text-warning"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container f-cart-items">
+  <div class="checkout">
+    <h3>我的购物车</h3>
+    <table class="table table-striped table-hover f-checkout-cart">
+      <thead>
+      <th>餐品</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>#</th>
+      </thead>
+      <tbody id="cart-items">
+      <tr id="order-summary">
+        <td colspan="4">
+          <div style="text-align: center">
+            <span class="glyphicon glyphicon-send"></span><span id="empty-cart-placeholder"> 小计：<strong
+              id="lg-sum-price">0.0</strong>￥</span>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="checkout-section">
+      <h3>配送地址</h3>
+    </div>
+    <form role="form">
+      <div class="form-group">
+        <label for="tel">联系电话</label>
+        <input type="text" class="form-control" id="tel" placeholder="TEL">
+      </div>
+      <div class="form-group">
+        <label for="customer">联系人</label>
+        <input type="text" class="form-control" id="customer" placeholder="张先生/女士">
+      </div>
+      <div class="form-group">
+        <label for="ship-address">配送至</label>
+        <input type="text" class="form-control" id="ship-address" placeholder="深圳">
+      </div>
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-success">下单</button>
+        <button type="button" class="btn btn-warning">重填</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- all available fast food -->
+<div class="navbar navbar-fixed-bottom f-navbar-bottom" role="navigation">
+  <div class="container f-nav-links">
+    <a href="#" id="f-shopping-cart"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车</a>
+  </div>
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/menu.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

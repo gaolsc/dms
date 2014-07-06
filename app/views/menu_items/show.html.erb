@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @menu_item.label %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @menu_item.price %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @menu_item.enabled %>
+</p>
+
+<p>
+  <strong>Preview url:</strong>
+  <%= @menu_item.preview_url %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @menu_item.desc %>
+</p>
+
+<%= link_to 'Edit', edit_menu_item_path(@menu_item) %> |
+<%= link_to 'Back', menu_items_path %>

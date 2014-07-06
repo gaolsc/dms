@@ -1,0 +1,102 @@
+.f-preview-container {
+    width: 9em;
+    /*14#6=84px*/
+    height: 90px;
+    line-height: 90px;
+    float: left;
+    vertical-align: middle;
+}
+
+.f-preview {
+    width: 9em;
+    height: 6em;
+}
+
+.f-menu-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+    padding-right: 10px;
+    /*border: 0.4em solid green;*/
+}
+
+.f-indicator {
+    height: 100%;
+    float: right;
+}
+
+.f-details {
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.f-details h3 {
+    font-size: 16px;
+    margin-top: 0;
+    float: left;
+    padding-right: 10px;
+}
+
+.f-price {
+    color: red;
+    padding-right: 1em;
+    min-width: 45px;
+    display: inline-block;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 44px;
+}
+
+.f-menu-container {
+    margin-top: 10px;
+}
+
+.f-label {
+    font-size: 1em;
+    display: block;
+    padding-bottom: 0;
+}
+
+.f-navbar-bottom {
+    background-color: #eee;
+    min-height: 40px;
+    border-top: 1px solid #ddd;
+}
+
+.f-nav-links a {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 0 4px;
+}
+
+.lg-count-plus {
+    color: green;
+    padding: 0 0.4em;
+    cursor: pointer;
+}
+
+.lg-count-minus {
+    color: orange;
+    padding: 0 0.4em;
+    cursor: pointer;
+}
+
+.lg-item-remove {
+    color: red;
+}
+
+.i-item-count {
+    width: 2em;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.f-cart-items {
+    display: none;
+}
