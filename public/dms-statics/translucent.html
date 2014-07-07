@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>半透明div</title>
+  <style>
+    #div1 {
+      margin: 0px auto;
+      width: 500px;
+      height: 370px;
+      text-align: center;
+      background: url(img/test-1.jpg) no-repeat;
+    }
+
+    #div2 {
+      height: 330px;
+      filter: alpha(Opacity=80);
+      -moz-opacity: 0.5;
+      opacity: 0.5;
+      z-index: 100;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div id="div1">
+  <div style="padding:20px;">
+    <div id="div2">这里是透明的DIV</div>
+  </div>
+</div>
+</body>
+</html>

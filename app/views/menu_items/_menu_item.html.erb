@@ -1,4 +1,5 @@
 <div class="col-xs-12 col-md-6 f-menu-item">
+  <input type="hidden" value="<%= menu_item.id %>">
   <div class="f-preview-container">
     <img class="f-preview" src="<%= menu_item.preview_url %>">
     <div class="f-mask">
@@ -12,7 +13,7 @@
   <div class="f-details">
     <div>
       <h3 class="f-label"><%= menu_item.label %></h3>
-      <p>￥<span class="f-price"><%= menu_item.price %></span><span class="glyphicon glyphicon-info-sign f-item-details"></span> 详情</p>
+      <p>￥<span class="f-price"><%= menu_item.price %></span><a class="f-link-details" href="javascript:void(0)">详情</a></p>
     </div>
   </div>
 </div>
