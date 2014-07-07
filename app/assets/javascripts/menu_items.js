@@ -91,9 +91,18 @@ $(function () {
 //        context.parent().css('border-right', 'none');
 //    });
 
-    $('#f-shopping-cart').click(function () {
-        $('.f-menu-container').css('display', 'none');
-        $('.f-cart-items').css('display', 'block');
+//    $('#f-shopping-cart').click(function () {
+//        $('.f-menu-container').css('display', 'none');
+//        $('.f-cart-items').css('display', 'block');
+//        generateShoppingCart(order);
+//        updateTotalPrice(order);
+//        $('#f-back-order').css('display', 'inline-block');
+//    });
+
+    $('#i-order-confirm').click(function () {
+        $('.f-menu-container').hide();
+        $('.f-navbar-top').hide();
+        $('.f-cart-items').show();
         generateShoppingCart(order);
         updateTotalPrice(order);
         $('#f-back-order').css('display', 'inline-block');
