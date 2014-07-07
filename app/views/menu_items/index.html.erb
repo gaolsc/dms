@@ -18,10 +18,17 @@
 </div>
 
 <!-- all available fast food -->
-<div class="navbar navbar-fixed-top f-navbar-top" role="navigation">
+<div class="navbar navbar-fixed-top f-navbar-top" id="i-navtop-order" role="navigation">
   <div class="container f-nav-links">
     <span>已购：</span><span id="i-order-count">0</span> 份，共￥<span id="i-total-price">0</span>
     <a href="javascript:void(0)" id="i-order-confirm">确定</a>
+  </div>
+</div>
+
+<div class="navbar navbar-fixed-top f-navbar-top" id="i-navtop-checkout" role="navigation">
+  <div class="container f-nav-links">
+    <span class="glyphicon glyphicon-chevron-left" id="i-back-order"></span><span> <span style="padding-right:10px">我的购物车</span></span> 共￥<span id="i-checkout-price">0</span>
+    <a href="javascript:void(0)" id="i-order-checkout">下单</a>
   </div>
 </div>
 
@@ -32,17 +39,9 @@
       <thead>
       <th>餐品</th>
       <th>单价</th>
-      <th>数量</th>
       <th>#</th>
       </thead>
       <tbody id="cart-items">
-      <tr id="order-summary">
-        <td colspan="4">
-          <div style="text-align: center">
-            <span class="glyphicon glyphicon-send"></span><span id="empty-cart-placeholder"> 小计：<strong id="lg-sum-price">0.0</strong>￥</span>
-          </div>
-        </td>
-      </tr>
       </tbody>
     </table>
 
@@ -63,7 +62,6 @@
         <input type="text" class="form-control" id="ship-address" placeholder="深圳">
       </div>
       <div class="btn-group pull-right">
-        <button type="button" class="btn btn-success" id="i-make-order">下单</button>
         <button type="button" class="btn btn-warning">重填</button>
       </div>
     <% end %>

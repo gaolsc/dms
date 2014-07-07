@@ -10,29 +10,34 @@ $(function () {
         var tds = [];
         tds.push("<td>" + label + "</td>");
         tds.push('<td>￥' + price + '</td>');
-        tds.push('<td><span class="glyphicon glyphicon-minus lg-count-minus"></span><input class="i-item-count" type="text" value="' + count + '"><span class="glyphicon glyphicon-plus lg-count-plus"></span></td>');
-        tds.push('<td><span class="glyphicon glyphicon-remove lg-item-remove"></span></td>');
-        var tr = "<tr id='cart-item-" + id + "'>" + tds.join('') + '</tr>';
-        var tbody = $('#cart-items');
-        tbody.append(tr);
+//        tds.push('<td><span class="glyphicon glyphicon-minus lg-count-minus"></span><input class="i-item-count" type="text" value="' + count + '"><span class="glyphicon glyphicon-plus lg-count-plus"></span></td>');
+        tds.push('<td><span class="lg-item-remove">删除<input type="hidden" value="' + id + '"></span></td>');
+        return "<tr id='cart-item-" + id + "'>" + tds.join('') + '</tr>';
     };
 
-    var updateSummary = function (orders) {
+    var calcSum = function (orders) {
         var count = 0;
         var price = 0;
         for (var order in orders) {
-            count += 1;
+            count += orders[order].count;
             price += orders[order].price;
         }
+        return {count: count, price: price};
+    };
+
+    var updateSummery = function (count, price) {
         $('#i-order-count').html(count);
         $('#i-total-price').html(price);
     };
 
     var generateShoppingCart = function (orders) {
+        var items = [];
         for (var i in orders) {
             var order = orders[i];
-            generateCartItem(i, order.label, order.count, order.price)
+            items.push(generateCartItem(i, order.label, order.count, order.price));
         }
+        var tbody = $('#cart-items');
+        tbody.html(items.join(''));
     };
 
     var updateTotalPrice = function (orders) {
@@ -42,21 +47,8 @@ $(function () {
             var itemPrice = order.price;
             totalPrice += itemPrice * order.count;
         }
-        $('#lg-sum-price').html(totalPrice);
+        $('#i-checkout-price').html(totalPrice);
     };
-
-//    $('.f-action-order').click(function () {
-//        var id = $(this).val();
-//        var context = $(this).parent().parent();
-//        if (order[id] == null) {
-//            order[id] = {count: 0};
-//            context.parent().css('border-right', '4px solid green');
-//            order[id].label = $('.f-label', context).html();
-//            order[id].price = $('.f-price', context).html();
-//        }
-//        order[id].count += 1;
-//        updateOrderItemCount(context, order[id].count);
-//    });
 
     $('.f-preview-container').click(function () {
         var ctx = $(this).parent();
@@ -67,7 +59,7 @@ $(function () {
             mask.hide();
             delete order[id];
             if ($.isEmptyObject(order)) {
-                $('.f-navbar-top').hide();
+                $('#i-navtop-order').hide();
             }
         } else {
             if (order[id] == null) {
@@ -76,11 +68,11 @@ $(function () {
                 order[id].price = parseFloat($('.f-price', ctx).html());
             }
             order[id].count += 1;
-            $('.f-navbar-top').show();
+            $('#i-navtop-order').show();
             $('.f-mask', ctx).show();
         }
-        updateSummary(order);
-        console.log(order);
+        var sums = calcSum(order);
+        updateSummery(sums.count, sums.price);
     });
 
 //    $('.f-action-remove').click(function () {
@@ -101,30 +93,44 @@ $(function () {
 
     $('#i-order-confirm').click(function () {
         $('.f-menu-container').hide();
-        $('.f-navbar-top').hide();
+        $('#i-navtop-order').hide();
         $('.f-cart-items').show();
         generateShoppingCart(order);
         updateTotalPrice(order);
-        $('#f-back-order').css('display', 'inline-block');
+        $('#i-navtop-checkout').show();
     });
 
     $('#cart-items').on('click', 'span.lg-item-remove', function () {
+        var id = $('input', $(this)).val();
+        delete order[id];
         $(this).parent().parent().remove();
+        updateTotalPrice(order);
     });
 
-    $('#cart-items').on('click', 'span.lg-count-minus', function () {
-        var itemCount = $('input.i-item-count', $(this).parent());
-        var count = itemCount.val();
-        if (count > 1) {
-            var left = --count;
-            itemCount.val(left);
+//    $('#cart-items').on('click', 'span.lg-count-minus', function () {
+//        var itemCount = $('input.i-item-count', $(this).parent());
+//        var count = itemCount.val();
+//        if (count > 1) {
+//            var left = --count;
+//            itemCount.val(left);
+//        }
+//    });
+//
+//    $('#cart-items').on('click', 'span.lg-count-plus', function () {
+//        var itemCount = $('input.i-item-count', $(this).parent());
+//        var count = parseInt(itemCount.val(), 10);
+//        itemCount.val(++count);
+//    });
+
+    $('#i-back-order').click(function () {
+        $('.f-cart-items').hide();
+        $('#i-navtop-checkout').hide();
+        var sums = calcSum(order);
+        updateSummery(sums.count, sums.price);
+        $('.f-menu-container').show();
+        if (sums.count > 0) {
+            $('#i-navtop-order').show();
         }
-    });
-
-    $('#cart-items').on('click', 'span.lg-count-plus', function () {
-        var itemCount = $('input.i-item-count', $(this).parent());
-        var count = parseInt(itemCount.val(), 10);
-        itemCount.val(++count);
     });
 
     $('#i-make-order').click(function () {

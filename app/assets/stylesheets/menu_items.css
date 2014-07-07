@@ -71,6 +71,12 @@
     /*line-height: 90px;*/
 }
 
+#i-back-order {
+    padding: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .f-details:before {
     content: '';
     height: 100%;
@@ -144,20 +150,20 @@ body {
     padding-left: 5px;
 }
 
-.lg-count-plus {
-    color: green;
-    padding: 0 0.5em;
-    cursor: pointer;
-}
+/*.lg-count-plus {*/
+    /*color: green;*/
+    /*padding: 0 0.5em;*/
+    /*cursor: pointer;*/
+/*}*/
 
-.lg-count-minus {
-    color: orange;
-    padding: 0 0.5em;
-    cursor: pointer;
-}
+/*.lg-count-minus {*/
+    /*color: orange;*/
+    /*padding: 0 0.5em;*/
+    /*cursor: pointer;*/
+/*}*/
 
 .lg-item-remove {
-    color: red;
+    color: green;
     padding: 0 0.5em;
     cursor: pointer;
 }
