@@ -35,8 +35,11 @@ ActiveRecord::Schema.define(version: 20140627034143) do
   end
 
   create_table "orders", force: true do |t|
-    t.integer  "user_id"
     t.integer  "status"
+    t.string   "realname"
+    t.string   "ship_address"
+    t.string   "tel"
+    t.string   "weixin_openid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,10 +56,6 @@ ActiveRecord::Schema.define(version: 20140627034143) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.string   "realname"
-    t.string   "ship_address"
-    t.string   "tel"
-    t.string   "weixin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

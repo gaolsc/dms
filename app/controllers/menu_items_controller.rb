@@ -8,10 +8,6 @@ class MenuItemsController < ApplicationController
   def show
   end
 
-  def new
-    @menu_item = MenuItem.new
-  end
-
   def edit
   end
 

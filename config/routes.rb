@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+
+  get 'orders/create'
+
+  get 'orders/destroy'
+
   resources :menu_items
 
   devise_for :users

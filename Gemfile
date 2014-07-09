@@ -41,6 +41,10 @@ gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rbenv', '~> 2.0'
 gem 'capistrano-rails', group: :development
 
+group :development, :test do
+  gem 'pry'
+end
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 

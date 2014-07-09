@@ -1,10 +1,7 @@
 $(function () {
     var order = {};
     this.uOrders = order;
-
-//    var updateOrderItemCount = function (ctx, count) {
-//        $('.f-order-count', ctx).html(count);
-//    };
+    var orderSubmitted = false;
 
     var generateCartItem = function (id, label, count, price) {
         var tds = [];
@@ -28,6 +25,16 @@ $(function () {
     var updateSummery = function (count, price) {
         $('#i-order-count').html(count);
         $('#i-total-price').html(price);
+    };
+
+    var updateSelected = function (orders) {
+        $.each($('.f-menu-item'), function (i, item) {
+            var itemId = $(item).children('input').val();
+            var mask = $('.f-mask', $(item));
+            if (!orders[itemId]) {
+                mask.hide();
+            }
+        });
     };
 
     var generateShoppingCart = function (orders) {
@@ -75,22 +82,6 @@ $(function () {
         updateSummery(sums.count, sums.price);
     });
 
-//    $('.f-action-remove').click(function () {
-//        var id = $(this).val();
-//        var context = $(this).parent().parent();
-//        order[id] = null;
-//        updateOrderItemCount(context, 0);
-//        context.parent().css('border-right', 'none');
-//    });
-
-//    $('#f-shopping-cart').click(function () {
-//        $('.f-menu-container').css('display', 'none');
-//        $('.f-cart-items').css('display', 'block');
-//        generateShoppingCart(order);
-//        updateTotalPrice(order);
-//        $('#f-back-order').css('display', 'inline-block');
-//    });
-
     $('#i-order-confirm').click(function () {
         $('.f-menu-container').hide();
         $('#i-navtop-order').hide();
@@ -107,33 +98,82 @@ $(function () {
         updateTotalPrice(order);
     });
 
-//    $('#cart-items').on('click', 'span.lg-count-minus', function () {
-//        var itemCount = $('input.i-item-count', $(this).parent());
-//        var count = itemCount.val();
-//        if (count > 1) {
-//            var left = --count;
-//            itemCount.val(left);
-//        }
-//    });
-//
-//    $('#cart-items').on('click', 'span.lg-count-plus', function () {
-//        var itemCount = $('input.i-item-count', $(this).parent());
-//        var count = parseInt(itemCount.val(), 10);
-//        itemCount.val(++count);
-//    });
-
     $('#i-back-order').click(function () {
         $('.f-cart-items').hide();
         $('#i-navtop-checkout').hide();
         var sums = calcSum(order);
         updateSummery(sums.count, sums.price);
+        updateSelected(order);
         $('.f-menu-container').show();
         if (sums.count > 0) {
             $('#i-navtop-order').show();
         }
     });
 
-    $('#i-make-order').click(function () {
+    var checkContact = function () {
+        if ($.trim($('#i-tel').val()) == '') {
+            $.notify('联系电话不能为空', "error");
+            return false;
+        }
+        if ($.trim($('#i-customer').val()) == '') {
+            $.notify('联系人不能为空', "error");
+            return false;
+        }
+        if ($.trim($('#i-ship-address').val()) == '') {
+            $.notify('配送地址不能为空', "error");
+            return false;
+        }
+        return true;
+    };
 
+    $('#i-order-checkout').click(function () {
+        if (!checkContact()) {
+            return;
+        }
+
+        var orders = {};
+        var hasOrder = false;
+        for (var o in order) {
+            hasOrder = true;
+            orders[o] = order[o].count;
+        }
+
+        if (!hasOrder) {
+            $.notify('购物车里什么也没有哦', 'info')
+            return;
+        }
+
+        $.ajax({
+            url: '/orders',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                contact: {
+                    realname: $('#i-customer').val(),
+                    tel: $('#i-tel').val(),
+                    ship_address: $('#i-ship-address').val()
+                },
+                orders: orders
+            },
+            beforeSend: function (jqXHR, o) {
+                if (orderSubmitted) {
+                    $.notify("订单正在处理中", "info");
+                    return false;
+                } else {
+                    orderSubmitted = true;
+                }
+            },
+            success: function (data, status, jqXHR) {
+                $.notify("订单提交成功", "success");
+                order = {};
+                $('#i-back-order').trigger('click');
+            },
+            error: function (jqXHR, status, errorThrown) {
+                $.notify("订单未能提交", "error");
+            },
+            complete: function (jqXHR, status) {
+                orderSubmitted = false;
+            }
+        });
     });
 });

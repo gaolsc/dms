@@ -31,11 +31,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :name
-      t.string :realname
-      t.string :ship_address
-      t.string :tel
-      t.string :weixin_id
-
       t.timestamps
     end
 
