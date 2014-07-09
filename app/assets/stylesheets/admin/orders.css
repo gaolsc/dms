@@ -1,0 +1,72 @@
+.o-orders-row {
+    /*border-bottom: 2px solid #ddd;*/
+    padding: 5px;
+    position: relative;
+}
+
+.o-order-label {
+    /*padding: 5px;*/
+    background-color: #eee;
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 1px solid #ddd;
+}
+
+/*.o-order-item {*/
+/*padding-top: 5px;*/
+/*}*/
+
+/*.o-customer-tel {*/
+/*padding-left: 7px;*/
+/*}*/
+
+.o-customer {
+    /*min-width: 1.5em;*/
+    display: inline-block;
+    padding-right: 5px;
+    min-width: 180px;
+}
+
+.o-order-ok {
+    font-size: 16px;
+    color: green;
+    padding: 8px 8px;
+    cursor: pointer;
+    /*height: 36px;*/
+    /*display: inline-block;*/
+    /*height: 100%;*/
+}
+
+.o-order-drop {
+    font-size: 16px;
+    color: red;
+    padding: 8px 8px;
+    cursor: pointer;
+}
+
+.o-order-item {
+    /*min-width: 45px;*/
+    /*display: inline-block;*/
+    height: 30px;
+    line-height: 30px;
+}
+
+.o-item-count {
+    /*float: right !important;*/
+    display: inline-block;
+    min-width: 45px;
+}
+
+.o-order-time {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.m-menu-item h3 {
+    border-bottom: 2px solid #ddd;
+}

@@ -1,9 +1,9 @@
-class OrdersController < ApplicationController
+class Admin::OrdersController < ApplicationController
   def index
-    if params[:today]
-      @orders = Order.includes(:line_item).today.order(:created_at, :desc)
+    if params[:all]
+      @orders = Order.order(created_at: :desc)
     else
-      @orders = Order.order(:created_at, :desc)
+      @orders = Order.includes(:line_items).today.order(created_at: :desc)
     end
   end
 

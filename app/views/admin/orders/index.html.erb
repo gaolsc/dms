@@ -1,0 +1,30 @@
+<% content_for :head do %>
+  <%= javascript_include_tag params[:controller] %>
+  <%= stylesheet_link_tag params[:controller] %>
+<% end %>
+
+<% content_for :nav_links do %>
+  <li class="active"><a href="#">今日订单</a></li>
+  <li><a href="#about">已完成订单</a></li>
+  <li><a href="#contact">废弃订单</a></li>
+<% end %>
+
+<div class="container">
+  <% @orders.each do |order| %>
+    <div class="row o-orders-row">
+      <div class="col-xs-12 o-order-label">
+        <div class="pull-left">
+          <span class="o-customer">
+            <%= order.realname %>@<%= order.created_at.strftime('%Y-%m-%d %H:%S') %>/
+          </span>
+          <span class="o-customer-tel"><%= order.tel %>
+          </span>
+        </div>
+        <div class="pull-right o-action">
+          <span class="glyphicon glyphicon-ok o-order-ok"></span><span class="glyphicon glyphicon-remove o-order-drop"></span>
+        </div>
+      </div>
+      <%= render partial: "line_item", collection: order.line_items %>
+    </div>
+  <% end %>
+</div>

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'orders/index'
+  namespace :admin do
+    resources :orders, only: [:index, :update, :destroy]
+  end
 
-  get 'orders/create'
-
-  get 'orders/destroy'
+  post '/orders' => 'admin/orders#create'
 
   resources :menu_items
 
@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   root 'menu_items#index'
 
   resources :menu_items
-
-  resources :orders
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
