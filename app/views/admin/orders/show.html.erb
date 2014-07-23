@@ -1,0 +1,50 @@
+<% content_for :head do %>
+  <%= javascript_include_tag (params[:controller] + "_show") %>
+  <%= stylesheet_link_tag params[:controller] %>
+<% end %>
+
+<% content_for :nav_links do %>
+  <li class="active"><a href="#">今日订单</a></li>
+  <li><a href="#about">已完成订单</a></li>
+  <li><a href="#contact">废弃订单</a></li>
+<% end %>
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <td>顾客姓名</td>
+      <td><%= @order.realname %></td>
+    </tr>
+    <tr>
+      <td>联系电话</td>
+      <td><%= @order.tel %></td>
+    </tr>
+    <tr>
+      <td>订单时间</td>
+      <td><%= @order.created_at.strftime('%Y-%m-%d %H:%S') %></td>
+    </tr>
+    <tr>
+      <td>送餐地点</td>
+      <td><%= @order.ship_address %></td>
+    </tr>
+  </table>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>
+        订单内容
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @line_items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.label %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

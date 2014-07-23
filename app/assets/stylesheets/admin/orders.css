@@ -70,3 +70,7 @@ body {
 .m-menu-item h3 {
     border-bottom: 2px solid #ddd;
 }
+
+.o-op-col {
+    display: none;
+}

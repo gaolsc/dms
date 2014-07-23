@@ -4,9 +4,11 @@ class Order < ActiveRecord::Base
   scope :today, -> { where("created_at >= ?", Time.now.beginning_of_day) }
 
   PASSWORD = '123456'
+
   ST_NEW = 0
   ST_OVER = 1
   ST_OBSOLETE= 2
+  ST_HUMAN_MAP = {ST_NEW => '未完成', ST_OVER => '已完成', ST_OBSOLETE => '废弃'}
 
   class << self
     def create_order(contact, orders)
@@ -21,6 +23,9 @@ class Order < ActiveRecord::Base
       order.save!
       order
     end
+  end
 
+  def status_human
+    ST_HUMAN_MAP[status]
   end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :orders, only: [:index, :update, :destroy]
+    resources :orders, only: [:index, :update, :destroy, :show]
   end
 
   post '/orders' => 'admin/orders#create'

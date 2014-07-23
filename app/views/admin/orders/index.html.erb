@@ -10,21 +10,24 @@
 <% end %>
 
 <div class="container">
-  <% @orders.each do |order| %>
-    <div class="row o-orders-row">
-      <div class="col-xs-12 o-order-label">
-        <div class="pull-left">
-          <span class="o-customer">
-            <%= order.realname %>@<%= order.created_at.strftime('%Y-%m-%d %H:%S') %>/
-          </span>
-          <span class="o-customer-tel"><%= order.tel %>
-          </span>
-        </div>
-        <div class="pull-right o-action">
-          <span class="glyphicon glyphicon-ok o-order-ok"></span><span class="glyphicon glyphicon-remove o-order-drop"></span>
-        </div>
-      </div>
-      <%= render partial: "line_item", collection: order.line_items %>
-    </div>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机</th>
+      <th>标签</th>
+      <th class="o-op-col">#</th>
+    </tr>
+    </thead>
+    <tbody id="i-all-orders">
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.realname %></td>
+        <td><%= order.tel %></td>
+        <td><%= order.status_human %></td>
+        <td class="o-op-col"><input type="hidden" value="<%= order.id %>"></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
