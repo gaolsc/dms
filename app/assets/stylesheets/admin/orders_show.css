@@ -1,0 +1,9 @@
+.action-link {
+    font-size: 15px;
+    border-left: 1px solid #ddd;
+    padding: 0 5px;
+}
+
+body {
+    padding-top: 50px;
+}

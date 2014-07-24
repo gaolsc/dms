@@ -1,16 +1,23 @@
 <% content_for :head do %>
   <%= javascript_include_tag (params[:controller] + "_show") %>
-  <%= stylesheet_link_tag params[:controller] %>
+  <%= stylesheet_link_tag (params[:controller] + "_show") %>
 <% end %>
 
 <% content_for :nav_links do %>
-  <li class="active"><a href="#">今日订单</a></li>
-  <li><a href="#about">已完成订单</a></li>
-  <li><a href="#contact">废弃订单</a></li>
+  <li class="active"><a href="#">订单详情</a></li>
+  <li><a href="/admin/orders">今日订单</a></li>
 <% end %>
 
 <div class="container">
   <table class="table">
+    <tr>
+      <td colspan="2">
+        <span class="pull-right">
+          <a href="javascript:void(0)" id="i-action-finish" class="action-link">完成</a>
+          <a href="javascript:void(0)" id="i-action-new" class="action-link">未完成</a>
+        </span>
+      </td>
+    </tr>
     <tr>
       <td>顾客姓名</td>
       <td><%= @order.realname %></td>
@@ -32,19 +39,18 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>
-        订单内容
-      </th>
+      <th>订单内容</th>
+      <th>价格</th>
     </tr>
     </thead>
     <tbody>
     <% @line_items.each do |item| %>
       <tr>
-        <td>
-          <%= item.label %>
-        </td>
+        <td><%= item.label %></td>
+        <td><%= item.price %></td>
       </tr>
     <% end %>
+    <td colspan="2">共计：<%= @total_price %>￥</td>
     </tbody>
   </table>
 </div>
