@@ -16,7 +16,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     order = Order.find(params[:id])
-    order.update_attributes!(params[:order])
+    order.update_attributes!(order_params)
     render json: order, status: :ok
   end
 
@@ -27,5 +27,11 @@ class Admin::OrdersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:status, :ship_address, :realname, :weixin_openid, :tel)
   end
 end
