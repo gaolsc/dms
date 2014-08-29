@@ -12,13 +12,14 @@ class MenuItemsController < ApplicationController
   end
 
   def create
-    @menu_item = MenuItem.new(menu_item_params)
-
-    if @menu_item.save
-      render json: @menu_item, status: :created
-    else
-      render json: @menu_item.errors, status: :unprocessable_entity
-    end
+    _menu_item_params = params.permit(:label, :price, :desc)
+    preview_data = params[:preview].read()
+    preview_url = "previews/#{Time.now.to_i}.jpg"
+    File.open("public/" + preview_url, "wb") { |f| f.write(preview_data) }
+    _menu_item_params = {preview_url: preview_url}.merge(_menu_item_params)
+    item = MenuItem.new(_menu_item_params)
+    item.save()
+    render json: true, status: :created
   end
 
   def update

@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   post '/orders' => 'admin/orders#create'
 
-  resources :menu_items
-
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

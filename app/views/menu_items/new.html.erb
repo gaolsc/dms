@@ -9,18 +9,18 @@
 <% end %>
 
 <div class="container">
-  <%= form_tag('/admin/menu_items', method: 'post', id: 'i-menu-item-new-form') do %>
+  <%= form_tag('/menu_items', method: 'post', id: 'i-menu-item-new-form', enctype: "multipart/form-data") do %>
     <div class="form-group">
       <label for="i-menu-label">菜品名称<span class="f-mark-required">*</span></label>
-      <input type="text" class="form-control" id="i-menu-label">
+      <input type="text" name="label" class="form-control" id="i-menu-label">
     </div>
     <div class="form-group">
       <label for="i-item-price">菜品价格<span class="f-mark-required">*</span></label>
-      <input type="text" class="form-control" id="i-item-price">
+      <input type="text" name="price" class="form-control" id="i-item-price">
     </div>
     <div class="form-group">
       <label for="i-item-preview">菜品预览<span class="f-mark-required">*</span></label>
-      <input type="file" class="form-control" id="i-item-preview">
+      <input type="file" name="preview" class="form-control" id="i-item-preview">
     </div>
     <div class="form-group">
       <button type="button" class="btn btn-success" id="i-btn-new-menu-item">上架</button>
