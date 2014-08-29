@@ -5,6 +5,10 @@ class MenuItemsController < ApplicationController
     @menu_items = MenuItem.order(:created_at, :desc)
   end
 
+  def man_index
+    @menu_items = MenuItem.order(:created_at, :desc)
+  end
+
   def show
   end
 
@@ -16,10 +20,10 @@ class MenuItemsController < ApplicationController
     preview_data = params[:preview].read()
     preview_url = "previews/#{Time.now.to_i}.jpg"
     File.open("public/" + preview_url, "wb") { |f| f.write(preview_data) }
-    _menu_item_params = {preview_url: preview_url}.merge(_menu_item_params)
+    _menu_item_params = {preview_url: preview_url, enabled: true}.merge(_menu_item_params)
     item = MenuItem.new(_menu_item_params)
     item.save()
-    render json: true, status: :created
+    redirect_to man_index_path
   end
 
   def update

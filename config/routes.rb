@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   post '/orders' => 'admin/orders#create'
+  get '/admin/menu_items' => 'menu_items#man_index'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
