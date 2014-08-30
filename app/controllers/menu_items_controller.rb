@@ -23,7 +23,7 @@ class MenuItemsController < ApplicationController
     _menu_item_params = {preview_url: preview_url, enabled: true}.merge(_menu_item_params)
     item = MenuItem.new(_menu_item_params)
     item.save()
-    redirect_to man_index_path
+    redirect_to admin_menu_items_path
   end
 
   def update

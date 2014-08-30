@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   post    '/orders'                =>  'admin/orders#create'
   get     '/admin/menu_items'      =>  'menu_items#man_index'
+  get     '/admin'                 =>  'menu_items#man_index'
+  get     '/admin/menu_items/new'  =>  'menu_items#new'
   put     '/admin/menu_items/:id'  =>  'menu_items#update'
   post    '/admin/menu_items'      =>  'menu_items#create'
   delete  '/admin/menu_items/:id'  =>  'menu_items#destroy'

@@ -5,11 +5,11 @@
 
 <% content_for :nav_links do %>
   <li class="active"><a href="/admin/menu_items/new">菜品添加</a></li>
-  <li><a href="#">菜品管理</a></li>
+  <li><a href="/admin">菜品管理</a></li>
 <% end %>
 
 <div class="container">
-  <%= form_tag('/menu_items', method: 'post', id: 'i-menu-item-new-form', enctype: "multipart/form-data") do %>
+  <%= form_tag('/admin/menu_items', method: 'post', id: 'i-menu-item-new-form', enctype: "multipart/form-data") do %>
     <div class="form-group">
       <label for="i-menu-label">菜品名称<span class="f-mark-required">*</span></label>
       <input type="text" name="label" class="form-control" id="i-menu-label">
