@@ -2,7 +2,7 @@ class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @menu_items = MenuItem.order(:created_at, :desc)
+    @menu_items = MenuItem.where(enabled: true).order(:created_at, :desc)
   end
 
   def man_index
@@ -27,23 +27,13 @@ class MenuItemsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @menu_item.update(menu_item_params)
-        format.html { redirect_to @menu_item, notice: 'Menu item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @menu_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @menu_item.errors, status: :unprocessable_entity }
-      end
-    end
+    @menu_item.update(menu_item_params)
+    render json: @menu_item, status: :ok
   end
 
   def destroy
     @menu_item.destroy
-    respond_to do |format|
-      format.html { redirect_to menu_items_url, notice: 'Menu item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render json: true, status: :ok
   end
 
   private

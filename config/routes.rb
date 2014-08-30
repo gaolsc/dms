@@ -3,8 +3,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :update, :destroy, :show]
   end
 
-  post '/orders' => 'admin/orders#create'
-  get '/admin/menu_items' => 'menu_items#man_index'
+  post    '/orders'                =>  'admin/orders#create'
+  get     '/admin/menu_items'      =>  'menu_items#man_index'
+  put     '/admin/menu_items/:id'  =>  'menu_items#update'
+  post    '/admin/menu_items'      =>  'menu_items#create'
+  delete  '/admin/menu_items/:id'  =>  'menu_items#destroy'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,8 +15,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'menu_items#index'
-
-  resources :menu_items
+  resources :menu_items, only: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
