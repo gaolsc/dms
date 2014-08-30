@@ -15,10 +15,13 @@ $(function () {
                 }
             },
             success: function (data, status, jqXHR) {
+                var tr = _this.parent().parent();
                 if (enabled) {
                     _this.text("下架");
+                    tr.removeClass('disabled-item');
                 } else {
                     _this.text("上架");
+                    tr.addClass('disabled-item');
                 }
                 $.notify(action + "成功", "success");
             },

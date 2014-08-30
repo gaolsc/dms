@@ -6,3 +6,7 @@ body {
     padding-right: 5px;
     color: green;
 }
+
+.disabled-item {
+    color: #BBBBBB;
+}

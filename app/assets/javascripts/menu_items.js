@@ -7,9 +7,24 @@ $(function () {
         var tds = [];
         tds.push("<td>" + label + "</td>");
         tds.push('<td>￥' + price + '</td>');
-//        tds.push('<td><span class="glyphicon glyphicon-minus lg-count-minus"></span><input class="i-item-count" type="text" value="' + count + '"><span class="glyphicon glyphicon-plus lg-count-plus"></span></td>');
         tds.push('<td><span class="lg-item-remove">删除<input type="hidden" value="' + id + '"></span></td>');
         return "<tr id='cart-item-" + id + "'>" + tds.join('') + '</tr>';
+    };
+
+    var saveShipAddressLocal = function () {
+        if (window.localStorage) {
+            localStorage.setItem("i-tel", $.trim($('#i-tel').val()));
+            localStorage.setItem("i-customer", $.trim($('#i-customer').val()));
+            localStorage.setItem("i-ship-address", $.trim($('#i-ship-address').val()));
+        }
+    };
+
+    var loadShipAddress = function () {
+        if (window.localStorage) {
+            $('#i-tel').val(localStorage.getItem('i-tel'));
+            $('#i-customer').val(localStorage.getItem('i-customer'));
+            $('#i-ship-address').val(localStorage.getItem('i-ship-address'));
+        }
     };
 
     var calcSum = function (orders) {
@@ -89,6 +104,7 @@ $(function () {
         generateShoppingCart(order);
         updateTotalPrice(order);
         $('#i-navtop-checkout').show();
+        loadShipAddress();
     });
 
     $('#cart-items').on('click', 'span.lg-item-remove', function () {
@@ -156,6 +172,7 @@ $(function () {
                 orders: orders
             },
             beforeSend: function (jqXHR, o) {
+                saveShipAddressLocal();
                 if (orderSubmitted) {
                     $.notify("订单正在处理中", "info");
                     return false;
