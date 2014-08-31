@@ -1,0 +1,34 @@
+<% content_for :head do %>
+    <%= javascript_include_tag params[:controller] %>
+    <%= stylesheet_link_tag params[:controller] %>
+<% end %>
+
+<% content_for :nav_links do %>
+    <li><a href="/admin/orders">今日订单</a></li>
+    <li class="active"><a href="/admin/orders/eager">未处理订单</a></li>
+<% end %>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>姓名</th>
+      <th>手机</th>
+      <th>下单时间</th>
+      <th>已过去</th>
+      <th class="o-op-col">#</th>
+    </tr>
+    </thead>
+    <tbody id="i-all-orders">
+    <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.realname %></td>
+          <td><%= order.tel %></td>
+          <td><%= order.created_at.getlocal.strftime('%H:%M') %></td>
+          <td><%= elapsed(order.created_at).html_safe %></td>
+          <td class="o-op-col"><input type="hidden" value="<%= order.id %>"></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
