@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :orders, only: [:index, :update, :destroy, :show]
+    resources :orders, only: [:index, :update, :destroy, :show] do
+      get 'eager', on: :collection
+    end
   end
 
   post    '/orders'                =>  'admin/orders#create'

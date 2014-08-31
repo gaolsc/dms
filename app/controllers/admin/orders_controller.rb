@@ -7,6 +7,10 @@ class Admin::OrdersController < ApplicationController
     end
   end
 
+  def eager
+    @orders = Order.includes(:line_items).today.where(status: Order::ST_NEW).order(created_at: :asc)
+  end
+
   def create
     contact = params[:contact]
     orders = params[:orders]

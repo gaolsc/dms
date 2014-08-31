@@ -5,7 +5,7 @@
 
 <% content_for :nav_links do %>
   <li class="active"><a href="#">今日订单</a></li>
-  <li><a href="#about">已完成订单</a></li>
+  <li><a href="/admin/orders/eager">未处理订单</a></li>
 <% end %>
 
 <div class="container">
@@ -14,6 +14,7 @@
     <tr>
       <th>姓名</th>
       <th>手机</th>
+      <th>下单时间</th>
       <th>标签</th>
       <th class="o-op-col">#</th>
     </tr>
@@ -23,6 +24,7 @@
       <tr>
         <td><%= order.realname %></td>
         <td><%= order.tel %></td>
+        <td><%= order.created_at.getlocal.strftime('%H:%M') %></td>
         <td><%= order.status_human %></td>
         <td class="o-op-col"><input type="hidden" value="<%= order.id %>"></td>
       </tr>
