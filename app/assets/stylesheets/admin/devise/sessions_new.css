@@ -1,0 +1,12 @@
+body {
+    padding-top: 50px;
+}
+
+.f-mark-required {
+    color: red;
+    padding-left: 5px;
+}
+
+form.new_user {
+    padding-top: 10px;
+}

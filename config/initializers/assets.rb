@@ -8,7 +8,9 @@ precompile_assets = [
     "admin/menu_items_new.js",
     "admin/menu_items_new.css",
     "admin/menu_items_man.js",
-    "admin/menu_items_man.css"
+    "admin/menu_items_man.css",
+    "admin/devise/sessions_new.js",
+    "admin/devise/sessions_new.css"
 ]
 
 Rails.application.config.assets.precompile += precompile_assets

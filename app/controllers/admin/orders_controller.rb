@@ -1,4 +1,4 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < Admin::AdminController
   def index
     if params[:all]
       @orders = Order.order(created_at: :desc, updated_at: :desc)

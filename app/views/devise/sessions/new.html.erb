@@ -1,0 +1,24 @@
+<% content_for :head do %>
+    <%= javascript_include_tag "admin/#{params[:controller]}_new" %>
+    <%= stylesheet_link_tag "admin/#{params[:controller]}_new" %>
+<% end %>
+
+<% content_for :nav_links do %>
+    <li class="active"><a href="#">关于我们</a></li>
+<% end %>
+
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-group">
+        <label>邮箱<span class="f-mark-required">*</span></label>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <label>密码<span class="f-mark-required">*</span></label>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-success" id="i-btn-sign-in">登录</button>
+      </div>
+  <% end %>
+</div>
