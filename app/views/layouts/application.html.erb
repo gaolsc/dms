@@ -39,6 +39,11 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <%= yield :nav_links %>
+        <% if user_signed_in? %>
+            <li>
+              <%= link_to('注销', destroy_user_session_path, :method => :delete) %>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>

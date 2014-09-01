@@ -1,4 +1,6 @@
 class Admin::OrdersController < Admin::AdminController
+  skip_before_action :authenticate_user!, only: [:create]
+
   def index
     if params[:all]
       @orders = Order.order(created_at: :desc, updated_at: :desc)
