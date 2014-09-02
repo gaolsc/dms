@@ -3,8 +3,12 @@ class YipinyaoController < ApplicationController
   TOKEN = 'ysiupninnyypaeongfeigls0902'
 
   def auth
-    echostr = params[:echostr]
-    render text: echostr, status: :ok
+    if signature_valid?
+      echostr = params[:echostr]
+      render text: echostr, status: :ok
+    else
+      head :unprocessable_entity
+    end
   end
 
   def service
