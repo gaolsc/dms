@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post    '/admin/menu_items'      =>  'menu_items#create'
   delete  '/admin/menu_items/:id'  =>  'menu_items#destroy'
 
+  get     '/yipinyao'              =>  'yipinyao#auth'
+  post    '/yipinyao'              =>  'yipinyao#sevice'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
