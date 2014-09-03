@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   delete  '/admin/menu_items/:id'  =>  'menu_items#destroy'
 
   get     '/yipinyao'              =>  'yipinyao#auth'
-  post    '/yipinyao'              =>  'yipinyao#sevice'
+  post    '/yipinyao'              =>  'yipinyao#service'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
