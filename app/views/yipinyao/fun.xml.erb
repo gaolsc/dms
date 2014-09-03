@@ -2,13 +2,6 @@
 <ToUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></ToUserName>
 <FromUserName><![CDATA[<%= params[:xml][:FromUserName] %>]]></FromUserName>
 <CreateTime><%= Time.now.to_i %></CreateTime>
-<MsgType><![CDATA[news]]></MsgType>
-<ArticleCount>1</ArticleCount>
-<Articles>
-<item>
-<Title><![CDATA[欢迎来到一品肴]]></Title>
-<Description><![CDATA[没听懂，那就给你推荐一份菜单吧:)]]></Description>
-<Url><![CDATA[http://203.195.140.131]]></Url>
-</item>
-</Articles>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[http://203.195.140.131]]></Content>
 </xml>
