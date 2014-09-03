@@ -12,7 +12,7 @@ class YipinyaoController < ApplicationController
     data = params[:xml]
     if data[:MsgType] == "text"
       page = (data[:Content] == '菜' || data[:Content] == 'cai') ? :yipinyao : :fun
-      render xml: page, status: :ok
+      render page, formats: :xml
     else
       head :forbidden
     end
