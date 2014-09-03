@@ -11,14 +11,11 @@ class YipinyaoController < ApplicationController
   def service
     data = params[:xml]
     if data[:MsgType] == "text"
-      if data[:Content] == '菜' || data[:Content] == 'cai'
-        render xml: :yipinyao, status: :ok
-      else
-        render xml: :fun, status: :ok
-      end
+      page = (data[:Content] == '菜' || data[:Content] == 'cai') ? :yipinyao : :fun
+      render xml: page, status: :ok
+    else
+      head :forbidden
     end
-
-    head :forbidden
   end
 
   private
