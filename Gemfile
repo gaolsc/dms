@@ -29,6 +29,7 @@ gem 'spring', group: :development
 # Use devise for authentication
 gem 'devise'
 gem 'seed-fu', '~> 2.3'
+gem 'actionpack-xml_parser'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

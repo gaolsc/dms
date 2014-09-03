@@ -1,0 +1,14 @@
+<xml>
+<ToUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></ToUserName>
+<FromUserName><![CDATA[<%= params[:xml][:FromUserName] %>]]></FromUserName>
+<CreateTime><%= Time.now.to_i %></CreateTime>
+<MsgType><![CDATA[news]]></MsgType>
+<ArticleCount>1</ArticleCount>
+<Articles>
+<item>
+<Title><![CDATA[欢迎来到一品肴]]></Title>
+<Description><![CDATA[亲，点击订餐啦~]]></Description>
+<Url><![CDATA[http://203.195.140.131]]></Url>
+</item>
+</Articles>
+</xml>

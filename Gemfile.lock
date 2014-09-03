@@ -10,6 +10,8 @@ GEM
       activesupport (= 4.1.2)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    actionpack-xml_parser (1.0.1)
+      actionpack (>= 4.0.0.rc1)
     actionview (4.1.2)
       activesupport (= 4.1.2)
       builder (~> 3.1)
@@ -157,6 +159,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-xml_parser
   capistrano (~> 3.1)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails
